@@ -10,22 +10,26 @@
     <form action="./inicio.html">
         <input type="submit" value="Volver a Inicio"/>
     </form>
-    <form class="formulario" id="add-donation">
-        <div id="region-input" class="grupo-input">
+    <div class="main-container">
+        <div id="val-box" hidden>
+            <h2 id="val-msg"></h2>
+            <u1 id="val-list"></u1>
+        </div>
+        <form class="formulario" id="add-donation">
             <label for="region">Región</label>
             <input id="region" name="region" list="regiones" required>
             <datalist id="regiones"></datalist>
-        </div>
-        <div id="comuna-input" class="grupo-input">
+            <br>
+            
             <label for="comuna">Comuna</label>
             <input id="comuna" name="comuna" list="comunas" required>
             <datalist id="comunas"></datalist>
-        </div>
-        <div id="calle-numero-input" class="grupo-input">
+            <br>
+            
             <label for="calle-numero">Calle y número</label>
             <input id="calle-numero" name="calle-numero" type="text" size="80" required>
-        </div>
-        <div id="tipo-donacion-input" class="grupo-input">
+            <br>
+            
             <label for="tipo-donacion">Tipo Donación</label>
             <input id="tipo-donacion" name="tipo-donacion" list="tipos" required>
             <datalist id="tipos">
@@ -33,45 +37,46 @@
                 <option value="verdura">
                 <option value="otro">
             </datalist>
-        </div>
-        <div id="cantidad-input" class="grupo-input">
+            <br>
+            
             <label for="cantidad">Cantidad</label>
             <input id="cantidad" name="cantidad" type="text" size="10" required>
-        </div>
-        <div id="fecha-input" class="grupo-input">
+            <br>
+            
             <label for="fecha">Fecha Disponibilidad</label>
             <input id="fecha" name="fecha" type="text" size="10" required>
-        </div>
-        <div id="descripcion-input" class="grupo-input">
+            <br>
+            
             <label for="descripcion">Descripcion</label>
             <input id="descripcion" name="descripcion" size="80" type="text" >
-        </div>
-        <div id="condiciones-retiro-input" class="grupo-input">
+            <br>
+            
             <label for="condiciones-retiro">Condiciones para retirar</label>
             <input id="condiciones-retiro" name="condiciones-retiro" size="80" type="text" >
-        </div>
-        <div id="foto-donacion-input" class="grupo-input">
+            <br>
+            
             <label for="foto-donacion">Foto donación</label>
-            <input id="foto-donacion" name="foto-donacion" type="file" required>
-        </div>
-        <div id="nombre-input" class="grupo-input">
+            <input id="foto-donacion" name="foto-donacion" type="file" multiple accept="image/*,.pdf" required>
+            <br>
+            
             <label for="nombre">Nombre donante</label>
             <input id="nombre" name="nombre" type="text" size="80" required>
-        </div>
-        <div id="email-input" class="grupo-input">
+            <br>
+            
             <label for="email">Email contacto</label>
             <input id="email" name="email" type="email" size="30" required>
-        </div>
-        <div id="celular-input" class="grupo-input">
+            <br>
+            
             <label for="celular">Número celular contacto</label>
             <input id="celular" name="celular" type="text" size="15" required>
-        </div>
-        <div class="botones">
-            <button type="button" id="envio">
-                Agregar donación
-            </button>
-        </div>
-    </form>
+            <br>
+            <div class="botones">
+                <button type="button" id="envio">
+                    Agregar donación
+                </button>
+            </div>
+        </form>
+    </div>
     <script lang="javascript" src="../js/add-donation.js"></script>
 </body>
 </html>

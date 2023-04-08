@@ -5,6 +5,17 @@ const validarForm = () => {
     const validarTelefono = (telefono) => !telefono || /^\+569[0-9]{8}$/gm.test(telefono);
     //parte con +569 le siguen exactamente 8 numeros y termina
     const validarExiste = (x) => x && true;
+    const validarFotos = (files) => {
+        if (!files) return false;
+        let lengthValid = 1<=files.length && files.length <= 3;
+        let typeValid = true
+        for (const file of files){
+            let fileFamily = file.type.split("/") [0];
+            typeValid &&= fileFamily =="image" || file.type == "aplication/pdf";
+        }
+        return typeValid && lengthValid;
+
+    }
 
     //obtener inputs
     let regioninput = document.getElementById("region"); 
@@ -20,6 +31,48 @@ const validarForm = () => {
     let emailinput = document.getElementById("email");
     let celularinput = document.getElementById("celular");
 
+    let validationBox = document.getElementById("val-box");
+    let validationMessageElem = document.getElementById("val-msg");
+    let validationListElem = document.getElementById("val-list");
+
+    let isValid = false;
+    //let msg = "";
+    let InvalidInputs = [];
 
 
+    const setInvalidInput = (inputName) =>{
+        InvalidInputs.push(inputName);
+        isValid&&=false;
+    }
+
+    if (!validarNombre(nombreinput.value)) {
+        //msg += "El largo del nombre debe ser entre 2 y 80 caracteres\n";
+        setInvalidInput("Nombre");
+    } 
+
+    if (!validarEmail(emailinput.value)) {
+            //msg += "Email Incorrecto\n";
+            setInvalidInput("Email");
+    }
+
+    if (!validarTelefono(celularinput.value)) {
+            //msg += "Telefono Incorrecto\n";
+            setInvalidInput("celular");
+    }
+    
+    if (!isValid){
+        validationListElem.textContent = "";
+        for (input of InvalidInputs){
+            let listElement = document.createElement("li");
+            listElement.innerText = input;
+            validationListElem.append(listElement);
+        }
+        validationMessageElem.innerText = "Corregir los siguientes campos:";
+        validationBox.hidden = false;
+    } else {
+        if (confirm("¿Confirma que desea agregar esta donación?")){
+            alert("Hemos recibido la informacion de su donación. Muchas gracias.");
+            window.location.href = "../html/inicio.html";
+        }
+    }
 }
