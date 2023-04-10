@@ -16,6 +16,11 @@ const validarForm = () => {
         return typeValid && lengthValid;
 
     }
+    
+    //const validarFecha = (fecha) => {
+    //    /^[0-9]{2}\-((0(1|[3-9])|1[0-2])\-(0[1-9]|(1|2)[0-9]|3[0-1])|(02)\-(0[1-9]|(1[0-9]|2[0-8])))$/gm.test(fecha)
+    //    && 
+    //}
 
     //obtener inputs
     let regioninput = document.getElementById("region"); 
@@ -44,6 +49,34 @@ const validarForm = () => {
         InvalidInputs.push(inputName);
         isValid&&=false;
     }
+
+    if (!validarExiste(regioninput.value)) {
+        setInvalidInput("Region");
+    }
+
+    if (!validarExiste(comunainput.value)) {
+        setInvalidInput("Comuna");
+    }
+
+    if (!validarExiste(calleinput.value)) {
+        setInvalidInput("Calle y Número");
+    }
+
+    if (!validarExiste(tipoinput.value)) {
+        setInvalidInput("Tipo donación");
+    }
+
+    if (!validarExiste(cantidadinput.value)) {
+        setInvalidInput("Cantidad");
+    }
+
+    if (!validarExiste(fechainput.value)) {
+        setInvalidInput("Fecha");
+    }
+
+    if (!validarFotos(fotoinput.files)) {
+        setInvalidInput("Fotos");
+    } 
 
     if (!validarNombre(nombreinput.value)) {
         //msg += "El largo del nombre debe ser entre 2 y 80 caracteres\n";
@@ -75,4 +108,7 @@ const validarForm = () => {
             window.location.href = "../html/inicio.html";
         }
     }
-}
+};
+
+let submitBtn = document.getElementById("envio");
+submitBtn.addEventListener("click", validarForm);
