@@ -6,11 +6,11 @@ const validarForm = () => {
     //parte con +569 le siguen exactamente 8 numeros y termina
     const validarExiste = (x) => x && true;
     const validarDescripcion = (desc) => desc.length < 250;
-
+    const validarTipo = (tipo) => tipo && (tipo == "fruta" || tipo == "verdura" || tipo == "otro");
     //obtener inputs
     let regioninput = document.getElementById("region"); 
     let comunainput = document.getElementById("comuna");
-    let tipoinput = document.getElementById("tipo-donacion");
+    let tipoinput = document.getElementById("tipo-pedido");
     let descripcioninput = document.getElementById("descripcion");
     let cantidadinput = document.getElementById("cantidad");
     let nombreinput = document.getElementById("nombre");
@@ -31,19 +31,19 @@ const validarForm = () => {
     }
 
     if (!validarExiste(regioninput.value)) {
-        setInvalidInput("Region");
+        setInvalidInput("Región");
     }
 
     if (!validarExiste(comunainput.value)) {
         setInvalidInput("Comuna");
     }
 
-    if (!validarExiste(tipoinput.value)) {
-        setInvalidInput("Tipo donación");
+    if (!validarTipo(tipoinput.value)) {
+        setInvalidInput("Tipo pedido");
     }
 
     if (!validarDescripcion(descripcioninput.value)) {
-        setInvalidInput("Decripcion pdido.");
+        setInvalidInput("Decripción pedido");
     }
 
     if (!validarExiste(cantidadinput.value)) {
@@ -52,17 +52,17 @@ const validarForm = () => {
 
     if (!validarNombre(nombreinput.value)) {
         //msg += "El largo del nombre debe ser entre 2 y 80 caracteres\n";
-        setInvalidInput("Nombre");
+        setInvalidInput("Nombre solicitante");
     } 
 
     if (!validarEmail(emailinput.value)) {
             //msg += "Email Incorrecto\n";
-            setInvalidInput("Email");
+            setInvalidInput("Email solicitante");
     }
 
     if (!validarTelefono(celularinput.value)) {
             //msg += "Telefono Incorrecto\n";
-            setInvalidInput("celular");
+            setInvalidInput("Número celular solicitante");
     }
     
     if (!isValid){
