@@ -40,7 +40,7 @@ const validarForm = () => {
     let validationMessageElem = document.getElementById("val-msg");
     let validationListElem = document.getElementById("val-list");
 
-    let isValid = false;
+    let isValid = true;
     //let msg = "";
     let InvalidInputs = [];
 
@@ -112,22 +112,3 @@ const validarForm = () => {
 
 let submitBtn = document.getElementById("envio");
 submitBtn.addEventListener("click", validarForm);
-
-/*
-const funcionComuna = (element) =>{
-    let regioninput = document.getElementById("selectRegion"); 
-    let selectComuna = document.getElementById("selectComuna");
-    const region = regiones.find(region => region.id == element.target.value);
-    region.comuna.forEach(comuna => {
-        let option = document.createElement("option");
-        option.value = comuna.id;
-        option.textContent = comuna.nombre;
-        selectComuna.appendChild(option);
-    });
-};
-
-
-
-let regionselect = document.getElementById("selectRegion");
-regionselect.addEventListener("change", funcionComuna(element));
-*/

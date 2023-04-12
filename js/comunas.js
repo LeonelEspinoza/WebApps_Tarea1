@@ -21,17 +21,17 @@ regionselect.addEventListener("change", event => {
 
 
 
-//Mostrar las comunas de la región seleccionada
-regionSelect.addEventListener("change", e => {
-    // Limpiar las opciones del select de comunas
-    comunaSelect.innerHTML = "<option selected disabled>Seleccione una comuna</option>";
+// //Mostrar las comunas de la región seleccionada
+// regionSelect.addEventListener("change", e => {
+//     // Limpiar las opciones del select de comunas
+//     comunaSelect.innerHTML = "<option selected disabled>Seleccione una comuna</option>";
 
-    const regionId = e.target.value;
-    const region = regiones.find(region => region.id == regionId);
-    region.comunas.forEach(comuna => {
-        const option = document.createElement("option");
-        option.value = comuna.id;
-        option.textContent = comuna.nombre;
-        comunaSelect.appendChild(option);
-    });
-});
+//     const regionId = e.target.value;
+//     const region = regiones.find(region => region.id == regionId);
+//     region.comunas.forEach(comuna => {
+//         const option = document.createElement("option");
+//         option.value = comuna.id;
+//         option.textContent = comuna.nombre;
+//         comunaSelect.appendChild(option);
+//     });
+// });

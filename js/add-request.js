@@ -21,7 +21,7 @@ const validarForm = () => {
     let validationMessageElem = document.getElementById("val-msg");
     let validationListElem = document.getElementById("val-list");
 
-    let isValid = false;
+    let isValid = true;
     let InvalidInputs = [];
 
 
