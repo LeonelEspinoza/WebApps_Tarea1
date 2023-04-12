@@ -75,8 +75,8 @@ const validarForm = () => {
         validationMessageElem.innerText = "Corregir los siguientes campos:";
         validationBox.hidden = false;
     } else {
-        if (confirm("¿Confirma que desea agregar esta donación?")){
-            alert("Hemos recibido la informacion de su donación. Muchas gracias.");
+        if (confirm("¿Confirma que desea agregar este pedido?")){
+            alert("Hemos recibido la informacion de su pedido. Muchas gracias.");
             window.location.href = "../html/inicio.html";
         }
     }
