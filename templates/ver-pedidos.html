@@ -1,66 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Donaciones</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <style>
-
-    </style>
-</head>
-<body>
-    <div class="main-container">
-        <table class="table">
-            <tr>
-                <th scope="col">Comuna</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Nombre</th>
-            </tr>
-            <tr>
-                <td>Petorca</td>
-                <td>Fruta</td>
-                <td>Desc</td>
-                <td>18 gramos</td>
-                <td>Martín García</td>
-            </tr>
-            <tr>
-                <td>Teno</td>
-                <td>Vegetales</td>
-                <td>desc 1</td>
-                <td>5 unidades</td>
-                <td>Cristián Cárcamo</td>
-            </tr>
-            <tr>
-                <td>Cobquecura</td>
-                <td>Otro</td>
-                <td>desc 2</td>
-                <td>7 manojos</td>
-                <td>Sebastián Morales</td>
-            </tr>
-            <tr>
-                <td>Lampa</td>
-                <td>Fruta</td>
-                <td>desc 3</td>
-                <td>2 sacos</td>
-                <td>Yolanda Rojas</td>
-            </tr>
-            <tr style="cursor: pointer" onclick= "window.location='./informacion-pedido.html'">
-                <td>Aysen</td>
-                <td>Fruta</td>
-                <td>Desc 4</td>
-                <td>1,5 bolsas</td>
-                <td>Cristina Aguilera</td>
-            </tr>
-        </table>
-    </div>
-    <form  action="./inicio.html">
-        <input class="btn btn-warning" type="submit" value="Volver a Inicio"/>
-    </form>
+{% extends 'base.html' %}
+{% block titulo%}
+    Ver Pedidos
+{% endblock %}
+{% block content %}
+<div class="main-container">
+    <table class="table">
+        <tr>
+            <th scope="col">Comuna</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Nombre</th>
+        </tr>
+        <tr>
+            <td>Petorca</td>
+            <td>Fruta</td>
+            <td>Desc</td>
+            <td>18 gramos</td>
+            <td>Martín García</td>
+        </tr>
+        <tr>
+            <td>Teno</td>
+            <td>Vegetales</td>
+            <td>desc 1</td>
+            <td>5 unidades</td>
+            <td>Cristián Cárcamo</td>
+        </tr>
+        <tr>
+            <td>Cobquecura</td>
+            <td>Otro</td>
+            <td>desc 2</td>
+            <td>7 manojos</td>
+            <td>Sebastián Morales</td>
+        </tr>
+        <tr>
+            <td>Lampa</td>
+            <td>Fruta</td>
+            <td>desc 3</td>
+            <td>2 sacos</td>
+            <td>Yolanda Rojas</td>
+        </tr>
+        <tr style="cursor: pointer" onclick= "window.location='./informacion-pedido.html'">
+            <td>Aysen</td>
+            <td>Fruta</td>
+            <td>Desc 4</td>
+            <td>1,5 bolsas</td>
+            <td>Cristina Aguilera</td>
+        </tr>
+    </table>
+</div>
+<form  action="./inicio.html">
+    <input class="btn btn-warning" type="submit" value="Volver a Inicio"/>
+</form>
+{% endblock content %}
+{% block javascript %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-</body>
-</html>
-   
+{% endblock %}
