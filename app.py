@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
@@ -11,8 +11,40 @@ def index():
     return render_template("inicio.html")
 
 #http://localhost/agregar-donacion
-@app.route("/agregar-donacion")
+@app.route("/agregar-donacion",  methods=('GET', 'POST'))
 def add_donation():
+    error = None
+    if (request =='POST'):
+        region = request.form['region']
+        comuna = request.form['comuna']
+        calle_numero = request.form['calle-numero']
+        tipo_pedido = request.form['tipo-donacion']
+        cantidad = request.form['cantidad']
+        fecha = request.form['fecha']
+        descripcion = request.form['descripcion']
+        condiciones_retiro = request.form['condiciones-retiro']
+        foto_donacion = request.form['foto-donacion']
+        nombre = request.form['nombre']
+        email = request.form['email']
+        celular = request.form['celular']
+    if (validate_donation(
+        region,
+        comuna,
+        calle_numero,
+        tipo_pedido,
+        cantidad,
+        fecha,
+        descripcion,
+        condiciones_retiro,
+        foto_donacion,
+        nombre,
+        email,
+        celular
+        )):
+        return redirect(url_for('index'))
+    else:
+        error='Form invalido'
+    
     return render_template("agregar-donacion.html")
 
 #http://localhost/agregar-pedido
