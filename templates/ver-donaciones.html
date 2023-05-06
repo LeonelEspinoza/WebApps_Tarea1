@@ -20,11 +20,12 @@
                 <td>2023-03-10</td>
                 <td>Martín García</td>
                 <td><img 
+                    id="manzanas-id"
                     style="cursor: pointer" 
                     onclick="window.location=
                     'https://www.freepik.es/foto-gratis/vista-superior-manzanas-colores-bolsa-arpillera-sobre-superficie-verde_9637207.htm#query=kilo%20de%20manzanas&position=14&from_view=search&track=ais'
                     " 
-                    src="../imagenes/vista-superior-manzanas-colores-bolsa-arpillera-sobre-superficie-verde.jpg" 
+                    src="{{ url_for('static', filename='media/manzanas.jpg') }}" 
                     class="rounded float-start" alt="Foto de Donación" width="120" height="120"></td>
             </tr>
             <tr>
@@ -34,7 +35,8 @@
                 <td>2023-03-08</td>
                 <td>Cristián Cárcamo</td>
                 <td><img 
-                    src="../imagenes/cucumber-g2d728b6c7_1280.jpg" 
+                    id="pepino-id"
+                    src="{{ url_for('static', filename='media/pepino.jpg') }}" 
                     class="rounded float-start" alt="Foto de Donación" width="120" height="120"></td>
             </tr>
             <tr>
@@ -48,7 +50,7 @@
                     onclick="window.location=
                     'https://www.freepik.es/foto-gratis/variedad-hierbas-organicas-frescas-lechuga-rucula-eneldo-menta-lechuga-roja-cebolla-sobre-fondo-gris-estilo-rustico-vista-superior_6654463.htm#query=manojo%20de%20hierbas&position=42&from_view=search&track=ais'
                     "
-                    src="../imagenes/variedad-hierbas-organicas-frescas-lechuga-rucula-eneldo-menta-lechuga-roja-cebolla-sobre-fondo-gris-estilo-rustico-vista-superior.jpg" 
+                    src="{{ url_for('static', filename='media/hierbas.jpg') }}" 
                     class="rounded float-start" alt="Foto de Donación" width="120" height="120"></td>
             </tr>
             <tr>
@@ -63,7 +65,7 @@
                     onclick="window.location=
                     'https://www.freepik.es/foto-gratis/fruta-fresca-naranja-jugosa-sobre-rosa-claro_5497516.htm#query=saco%20de%20naranja&position=2&from_view=search&track=ais'
                     " 
-                    src="../imagenes/fruta-fresca-naranja-jugosa-sobre-rosa-claro.jpg" 
+                    src="{{ url_for('static', filename='media/naranjas.jpg') }}" 
                     class="rounded float-start" alt="Foto de Donación" width="120" height="120">
                 </td>
             </tr>
@@ -74,14 +76,11 @@
                 <td>2023-03-30</td>
                 <td>Cristina Aguilera</td>
                 <td><img 
-                    src="../imagenes/strawberries-g3e29408df_1280.jpg" 
+                    src="{{ url_for('static', filename='media/frutillas.jpg') }}" 
                     class="rounded float-start" alt="Foto de Donación" width="120" height="120"></td>
             </tr>
         </table>
     </div>
-    <form  action="{{ url_for('index') }}">
-        <input class="btn btn-warning" type="submit" value="Volver a Inicio">
-    </form>
 {% endblock %}
 {% block javascript %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
