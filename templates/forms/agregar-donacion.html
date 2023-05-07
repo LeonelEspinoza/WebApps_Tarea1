@@ -3,6 +3,10 @@
     Agregar donacion
 {% endblock %}
 {% block content %}
+    {% if error %}
+    <div class="error-message">{{ error }} </div>
+    {% endif %}
+
     <div id="val-box" hidden>
         <h2 id="val-msg"></h2>
         <ul id="val-list"></ul>

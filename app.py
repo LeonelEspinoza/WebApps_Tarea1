@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for
-
+from utils.validations import validate_donation, validate_request
 app = Flask(__name__)
 
 #http://localhost
@@ -18,26 +18,36 @@ def add_donation():
         region = request.form['region']
         comuna = request.form['comuna']
         calle_numero = request.form['calle-numero']
-        tipo_pedido = request.form['tipo-donacion']
+        tipo_donacion = request.form['tipo-donacion']
         cantidad = request.form['cantidad']
         fecha = request.form['fecha']
-        descripcion = request.form['descripcion']
-        condiciones_retiro = request.form['condiciones-retiro']
         foto_donacion = request.form['foto-donacion']
         nombre = request.form['nombre']
         email = request.form['email']
         celular = request.form['celular']
-    #validation=validate_donation(region,comuna,calle_numero,tipo_pedido,cantidad,fecha,descripcion,condiciones_retiro,foto_donacion,nombre,email,celular)
-    #if (validation):
-    #    return redirect(url_for('index'))
-    #else:
-    #    error='Form invalido'
-    
+        validation=validate_donation(region,comuna,calle_numero,tipo_donacion,cantidad,fecha,foto_donacion,nombre,email,celular)
+        if (validation==[]):
+            return redirect(url_for('index'))
+        else:
+            return render_template("forms/agregar-donacion.html", error=validation)
     return render_template("forms/agregar-donacion.html")
 
 #http://localhost/agregar-pedido
-@app.route("/agregar-pedido")
+@app.route("/agregar-pedido",  methods=('GET', 'POST'))
 def add_request():
+    if (request =='POST'):
+        region = request.form['region']
+        comuna = request.form['comuna']
+        tipo_pedido = request.form['tipo-pedido']
+        cantidad = request.form['cantidad']
+        nombre = request.form['nombre']
+        email = request.form['email']
+        celular = request.form['celular']
+        validation=validate_request(region,comuna,tipo_pedido,cantidad,nombre,email,celular)
+        if (validation==[]):
+            return redirect(url_for('index'))
+        else:
+            return render_template("forms/agregar-pedido.html", error=validation)
     return render_template("forms/agregar-pedido.html")
 
 #http://localhost/ver-donaciones
@@ -59,8 +69,3 @@ def donation_info():
 @app.route("/informacion-pedido")
 def request_info():
     return render_template("specific_info/informacion-pedido.html")
-
-#http://localhost/login
-@app.route("/login")
-def login():
-    pass
