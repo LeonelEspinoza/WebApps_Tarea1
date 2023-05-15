@@ -22,6 +22,8 @@ const validarForm = () => {
     //    && 
     //}
 
+    // obtener el fomulario del DOM por el ID
+    //let donationForm = document.getElementById("add-donation");
     //obtener inputs
     let regioninput = document.getElementById("region"); 
     let comunainput = document.getElementById("comuna");
@@ -104,8 +106,9 @@ const validarForm = () => {
         validationBox.hidden = false;
     } else {
         if (confirm("¿Confirma que desea agregar esta donación?")){
+            //donationForm.submit();
             alert("Hemos recibido la informacion de su donación. Muchas gracias.");
-            window.location.href = "../html/inicio.html";
+            //window.location.href = "../html/inicio.html";
         }
     }
 };

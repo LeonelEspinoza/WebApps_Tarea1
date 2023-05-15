@@ -10,7 +10,7 @@
         <h2 id="val-msg"></h2>
         <ul id="val-list"></ul>
     </div>
-    <form class="formulario" id="add-donation" action="add_donation" method="post">
+    <form class="formulario" id="add-donation" action="/agregar-donacion" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
             <label class="input-group-text" for="region">Región</label>
             <select class="form-select" id="region" name="region" required>
@@ -96,12 +96,12 @@
             <label class="input-group-text" for="celular">Número celular contacto</label>
             <input id="celular" name="celular" type="text" size="15" required>
         </div>
-
-        <div class="botones">
-            <button class="btn btn-success" type="button" id="envio">
+        <!-- -->
+        <!--<div class="botones">-->
+            <button class="btn btn-success" type="submit" id="envio">
                 Agregar donación
             </button>
-        </div>
+        <!--</div>-->
     </form>
 {% endblock content %}
 {% block javascript %}

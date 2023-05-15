@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
 from utils.validations import validate_donation, validate_request
+from db import db
 app = Flask(__name__)
 
 #http://localhost
@@ -14,14 +15,14 @@ def index():
 @app.route("/agregar-donacion",  methods=('GET', 'POST'))
 def add_donation():
     error = None
-    if (request =='POST'):
+    if (request.method =='POST'):
         region = request.form['region']
         comuna = request.form['comuna']
         calle_numero = request.form['calle-numero']
         tipo_donacion = request.form['tipo-donacion']
         cantidad = request.form['cantidad']
         fecha = request.form['fecha']
-        foto_donacion = request.form['foto-donacion']
+        foto_donacion = request.files['foto-donacion']
         nombre = request.form['nombre']
         email = request.form['email']
         celular = request.form['celular']
@@ -69,3 +70,6 @@ def donation_info():
 @app.route("/informacion-pedido")
 def request_info():
     return render_template("specific_info/informacion-pedido.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
