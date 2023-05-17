@@ -45,7 +45,7 @@ def add_donation():
         
         #if donation valid
         if (validation==[]):
-            #get comuna id ("15","Camarones" are a place holder)
+            #get comuna id ("15" and "Camarones" are a place holder)
             comuna_id=db.get_comuna_id("15", "Camarones")
             
             #save donation to database
@@ -96,7 +96,7 @@ def add_request():
         
         #if request valid
         if (validation==[]):
-            #get comuna id
+            #get comuna id ("15" and "Camarones" are a place holder)
             comuna_id=db.get_comuna_id("15", "Camarones")
 
             #save request to database
@@ -114,12 +114,46 @@ def add_request():
 #http://localhost/ver-donaciones
 @app.route("/ver-donaciones")
 def donations():
-    return render_template("tables/ver-donaciones.html")
+    data=[]
+    for donation in db.get_donations(page=1):
+        donation_id, comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, descripcion, condiciones_retirar, nombre, email, celular = donation
+        _, comuna_nom=db.get_comuna_nom(comuna_id)
+        _, ruta_archivo, nombre_archivo, _= db.get_photo_by_donation_id(donation_id)
+        img_filename= f"{ruta_archivo}/{nombre_archivo}"
+        data.append({
+            "comuna_nom": comuna_nom,
+            "calle_numero": calle_numero,
+            "tipo": tipo,
+            "cantidad": cantidad,
+            "fecha": fecha_disponibilidad,
+            "descripcion": descripcion,
+            "condiciones_retirar": condiciones_retirar,
+            "nombre": nombre,
+            "email": email,
+            "celular": celular,
+            "img_filename": img_filename,
+        })
+
+    return render_template("tables/ver-donaciones.html",data=data)
 
 #http://localhost/ver-pedidos
 @app.route("/ver-pedidos")
 def requests():
-    return render_template("tables/ver-pedidos.html")
+    data=[]
+    for request in db.get_requests(page=1):
+        _, comuna_id, tipo, descripcion, cantidad, nombre, email, celular = request
+        _, comuna_nom=db.get_comuna_nom(comuna_id)
+        data.append({
+            "comuna_nom": comuna_nom,
+            "tipo": tipo,
+            "descripcion": descripcion,
+            "cantidad": cantidad,
+            "nombre": nombre,
+            "email": email,
+            "celular": celular,
+        })
+        
+    return render_template("tables/ver-pedidos.html",data=data)
 
 #http://localhost/informacion-donacion
 @app.route("/informacion-donacion")
