@@ -92,13 +92,15 @@ def add_request():
         celular = request.form['celular']
     
         #request's validation
-        validation=validate_request(region,comuna,tipo_pedido,cantidad,nombre,email,celular)
+        validation=validate_request(region, comuna, tipo_pedido, cantidad, descripcion, nombre, email, celular)
         
         #if request valid
         if (validation==[]):
+            #get comuna id
+            comuna_id=db.get_comuna_id("15", "Camarones")
 
             #save request to database
-            db.create_request(comuna, tipo_pedido, descripcion, cantidad, nombre, email, celular)
+            db.create_request(comuna_id, tipo_pedido, descripcion, cantidad, nombre, email, celular)
             
             return redirect(url_for('index'))
     

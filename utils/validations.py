@@ -76,8 +76,7 @@ def validate_donation(region,comuna,calle_numero,tipo_donacion,cantidad,
        invalid.append("Número celular invalido")
     return invalid
 
-def validate_request(region,comuna,calle_numero,tipo_pedido,cantidad,
-                     fecha,descripcion,nombre,email,celular):
+def validate_request(region, comuna, tipo_pedido, cantidad, descripcion, nombre, email, celular):
     invalid=[]
     if (validate_exist(region)!=True):
        invalid.append("Falta region")
@@ -85,17 +84,11 @@ def validate_request(region,comuna,calle_numero,tipo_pedido,cantidad,
     if (validate_exist(comuna)!=True):
        invalid.append("Falta comuna")
 
-    if (validate_exist(calle_numero)!=True):
-       invalid.append("Falta numero de calle")
-
     if (validate_exist(tipo_pedido)!=True):
        invalid.append("Falta tipo de pedido")
 
     if (validate_exist(cantidad)!=True):
        invalid.append("Falta cantidad")
-
-    if (validate_exist(fecha)!=True):
-       invalid.append("Falta fecha")
 
     if (validate_exist(descripcion)!=True):
        invalid.append("Falta descripcion")

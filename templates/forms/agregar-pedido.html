@@ -7,7 +7,7 @@
         <h3 id="val-msg"></h3>
         <ul id="val-list"></ul>
     </div>
-    <form class="formulario" id="add-request">
+    <form class="formulario" id="add-request" action="/agregar-pedido" method="post">
         <div class="input-group mb-3">
             <label class="input-group-text" for="region">Región</label>
             <select class="form-select" id="region" name="region" required>
@@ -74,11 +74,11 @@
             <input id="celular" name="celular" type="text" size="15" required>
         </div>
 
-        <div class="botones">
-            <button class="btn btn-success" type="button" id="envio">
+        <!--<div class="botones">-->
+            <button class="btn btn-success" type="submit" id="envio">
                 Agregar pedido
             </button>
-        </div>
+        <!--</div>-->
     </form>
 {% endblock content %}
 {% block javascript %}
