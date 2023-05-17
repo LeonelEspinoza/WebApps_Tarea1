@@ -96,3 +96,10 @@ def get_comuna_id(region_id, nom_comuna):
 	cursor.execute("SELECT id FROM comuna WHERE region_id=%s AND nombre= %s;", (region_id, nom_comuna))
 	request = cursor.fetchone()
 	return request
+
+def get_comuna_nom(comuna_id):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute("SELECT region_id, nombre FROM comuna WHERE id=%s;", (comuna_id))
+	request = cursor.fetchone()
+	return request
