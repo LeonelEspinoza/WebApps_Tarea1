@@ -14,7 +14,7 @@
         </tr>
         {% if data %}
             {% for request in data%}
-                <tr style="cursor: pointer" onclick= "window.location='/informacion-donacion?id={{request.id}}'">
+                <tr style="cursor: pointer" onclick= "window.location='/informacion-pedido?id={{request.id}}'">
                     <td>{{request.comuna_nom}}</td>
                     <td>{{request.tipo}}</td>
                     <td>{{request.descripcion}}</td>
