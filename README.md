@@ -9,7 +9,7 @@ Implementar usando python con Flask y MySQL
 + **URL inicio**: menu que permita acceder a las demás funcionalidades del sistema "Agregar Donacion", "Agregar Pedido", "Ver Donaciones" y "Ver Perdidos"  
 (
     <span style="color:lightgreen"> **Backend** </span>
-    | <span style="color:#d9c43f"> **Frontend** </span>
+    | <span style="color:lightgreen"> **Frontend** </span>
 )  
 + **Agregar Donación**: mostrar el mismo formulario desarrollado en la tarea 1, mantener todas las validaciones realizadas con JS, pero al agregar y confirmar debe validar los datos en el lado del servidor e inserta un registro en la base de datos en la tabla "donacion" junto con almacenar los archivos que corresponda. Si todo resulta bien llevar a la pagina de inicio con un mensaje apropiado. Si fallan las validaciones mantener en el formulario. con los mensajes de validacion correspondientes.  
 (
