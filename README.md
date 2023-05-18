@@ -32,15 +32,15 @@ Implementar usando python con Flask y MySQL
 + **Ver donaciones**: mostrar los datos tal como se indicó en la tarea 1, pero debe considerar grupos de 5 filas, si hay más de 5 debe mostrar las donaciones por página permitiendo avanzar y retroceder según corresponda. Si hace click en una donacion se debe mostrar la informacion de la donacion como se pidio en la tarea 1.  
 (
     <span style="color:lightgreen"> **Llamada a BD** </span>
-    | <span style="color:#cf2533"> **Funcionamiento páginas** </span>
-    | <span style="color:#cf2533"> **Link a donación** </span>
+    | <span style="color:lightgreen"> **Funcionamiento páginas** </span>
+    | <span style="color:lightgreen"> **Link a donación** </span>
     | <span style="color:#d9c43f"> **Frontend** </span>
 )  
 + **Ver pedidos**: lo mismo de ver donaciones pero con los datos de pedidos.  
 (
     <span style="color:lightgreen"> **Llamada a BD** </span>
-    | <span style="color:#cf2533"> **Funcionamiento páginas** </span>
-    | <span style="color:#cf2533"> **Link a pedido** </span>
+    | <span style="color:lightgreen"> **Funcionamiento páginas** </span>
+    | <span style="color:lightgreen"> **Link a pedido** </span>
     | <span style="color:#d9c43f"> **Frontend** </span>
 )
 
