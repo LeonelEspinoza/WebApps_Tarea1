@@ -114,8 +114,11 @@ def add_request():
 #http://localhost/ver-donaciones
 @app.route("/ver-donaciones")
 def donations():
+    page = request.args.get('page')
+    if not page:
+        page=1
     data=[]
-    for donation in db.get_donations(page=1):
+    for donation in db.get_donations(page):
         donation_id, comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, descripcion, condiciones_retirar, nombre, email, celular = donation
         _, comuna_nom=db.get_comuna_nom(comuna_id)
         _, ruta_archivo, nombre_archivo, _= db.get_photo_by_donation_id(donation_id)
@@ -140,9 +143,12 @@ def donations():
 #http://localhost/ver-pedidos
 @app.route("/ver-pedidos")
 def requests():
+    page = request.args.get('page')
+    if not page:
+        page=1
     data=[]
-    for request in db.get_requests(page=1):
-        request_id, comuna_id, tipo, descripcion, cantidad, nombre, email, celular = request
+    for req in db.get_requests(page):
+        request_id, comuna_id, tipo, descripcion, cantidad, nombre, email, celular = req
         _, comuna_nom=db.get_comuna_nom(comuna_id)
         data.append({
             "id": request_id,

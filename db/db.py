@@ -25,7 +25,8 @@ def get_conn():
 def get_donations(page):
 	conn = get_conn()
 	cursor = conn.cursor()
-	cursor.execute("SELECT id, comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, descripcion, condiciones_retirar, nombre, email, celular FROM donacion ORDER BY id DESC LIMIT %s,%s;",((page-1)*5,5))
+	start_from = (int (page)-1)*5
+	cursor.execute("SELECT id, comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, descripcion, condiciones_retirar, nombre, email, celular FROM donacion ORDER BY id DESC LIMIT %s,%s;",(start_from,5))
 	donations = cursor.fetchall()
 	return donations
 
@@ -52,7 +53,8 @@ def get_donation_id_by_values(comuna_id, calle_numero, tipo, cantidad, fecha_dis
 def get_requests(page):
 	conn = get_conn()
 	cursor = conn.cursor()
-	cursor.execute("SELECT id, comuna_id, tipo, descripcion, cantidad, nombre_solicitante, email_solicitante, celular_solicitante FROM pedido ORDER BY id DESC LIMIT %s,%s;",((page-1)*5,5))
+	start_from = (int (page)-1)*5
+	cursor.execute("SELECT id, comuna_id, tipo, descripcion, cantidad, nombre_solicitante, email_solicitante, celular_solicitante FROM pedido ORDER BY id DESC LIMIT %s,%s;",(start_from,5))
 	requests = cursor.fetchall()
 	return requests
 
