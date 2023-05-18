@@ -15,7 +15,7 @@
             </tr>
             {% if data %}
                 {% for donation in data%}
-                    <tr style="cursor: pointer" >
+                    <tr style="cursor: pointer" onclick= "window.location='/informacion-donacion?id={{donation.id}}'">
                         <td>{{donation.comuna_nom}}</td>
                         <td>{{donation.tipo}}</td>
                         <td>{{donation.cantidad}}</td>
@@ -26,7 +26,7 @@
                             class="rounded float-start" 
                             alt="Foto de Donación" 
                             width="120" height="120"></td>
-                    </tr>
+                        </tr>
                 {% endfor%}
             {% endif %}
         </table>
