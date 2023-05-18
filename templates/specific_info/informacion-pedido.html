@@ -3,22 +3,23 @@
 Información Pedido
 {% endblock %}
 {% block content %}
-<div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title">Cristina Aguilera</h5>
-        <p class="card-text"><span>Tipo: </span>Fruta</p>
-        <p class="card-text"><span>Región: </span>Región Aisén del General Carlos Ibáñez del Campo</p>
-        <p class="card-text"><span>Comuna: </span>Aysén</p>
-        <p class="card-text"><span>Cantidad: </span>1,5 bolsas</p>
-        <p class="card-text"><span>Descripción: </span>Necesito algunas peras para una actividad en el colegio de mi hije.</p>
-        <p class="card-text">
-            <small class="text-body-secondary">HackerMaligno123@hotmail.com</small>
-            <br>
-            <small class="text-body-secondary">+56938538554</small>
-            <br>
-        </p>
+{% if data %}
+    <div class="card mb-3">
+        <div class="card-body">
+        <h5 class="card-title">{{data.nombre}}</h5>
+            <p class="card-text"><span>Tipo: </span>{{data.tipo}}</p>
+            <p class="card-text"><span>Comuna: </span>{{data.comuna}}</p>
+            <p class="card-text"><span>Cantidad: </span>{{data.cantidad}}</p>
+            <p class="card-text"><span>Descripción: </span>{{data.descripcion}}</p>
+            <p class="card-text">
+                <small class="text-body-secondary">{{data.email}}</small>
+                <br>
+                <small class="text-body-secondary">{{data.celular}}</small>
+                <br>
+            </p>
+        </div>
     </div>
-</div>
+{% endif %}
 {% endblock content %}
 {% block javascript %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

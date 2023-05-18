@@ -3,6 +3,7 @@
 Informacion Pedido
 {% endblock %}
 {% block content %}
+{% if data %}
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
@@ -13,7 +14,7 @@ Informacion Pedido
             </div>
             <div class="modal-body">
                 <img 
-                    src="{{ url_for('static', filename='media/manzanas.jpg') }}"  
+                    src="{{data.img_filename}}"  
                     class="rounded float-start" alt="Foto de Donación" width="1280" height="1024">
             </div>
             <div class="modal-footer">
@@ -22,30 +23,31 @@ Informacion Pedido
         </div>
         </div>
     </div>
+    <!-- End Modal-->
     <div class="card mb-3">
         <img 
         data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-        src="{{ url_for('static', filename='media/manzanas.jpg') }}"  
+        src="{{data.img_filename}}"  
         class="rounded float-start" alt="Foto de Donación" width="640" height="480">
         <div class="card-body">
-          <h5 class="card-title">Martín García</h5>
-            <p class="card-text"><span>Tipo: </span>Fruta</p>
-            <p class="card-text"><span> Región: </span>Región de Valparaiso</p>
-            <p class="card-text"><span> Comuna: </span>Petroca</p>
-            <p class="card-text"><span> Calle: </span>Fry Camilo 2345</p>
-            <p class="card-text"><span> Cantidad: </span>1.2 Kg</p>
-            <p class="card-text"><span> Descripción: </span>Tengo un kilo y algo de manzanas que no usaré. Ojalá no se pierda.</p>
-            <p class="card-text"><span> Condiciones: </span>--</p>
+          <h5 class="card-title">{{data.nombre}}</h5>
+            <p class="card-text"><span>Tipo: </span>{{data.tipo}}</p>
+            <p class="card-text"><span> Comuna: </span>{{data.comuna_nom}}</p>
+            <p class="card-text"><span> Calle: </span>{{data.calle_numero}}</p>
+            <p class="card-text"><span> Cantidad: </span>{{data.cantidad}}</p>
+            <p class="card-text"><span> Descripción: </span>{{data.descripción}}</p>
+            <p class="card-text"><span> Condiciones: </span>{{data.condiciones_retirar}}</p>
             <p class="card-text">
-                <small class="text-body-secondary">Martin2345@gmail.com</small>
+                <small class="text-body-secondary">{{data.email}}</small>
                 <br>
-                <small class="text-body-secondary">+56998854686</small>
+                <small class="text-body-secondary">{{data.celular}}</small>
                 <br>
-                <small class="text-body-secondary">2023-03-10</small>
+                <small class="text-body-secondary">{{data.fecha}}</small>
                 <br>
             </p>
         </div>
-    </div>
+    </div>    
+{% endif %}
 {% endblock content %}
 {% block javascript %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

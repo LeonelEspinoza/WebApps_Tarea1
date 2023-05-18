@@ -157,13 +157,45 @@ def requests():
 
 #http://localhost/informacion-donacion
 @app.route("/informacion-donacion")
-def donation_info():
-    return render_template("specific_info/informacion-donacion.html")
+def donation_info(donation_id=-1):
+    if donation_id==-1:
+        return redirect(url_for('donations'))
+    _, comuna_id, calle_numero, tipo, cantidad, fecha_disponibilidad, descripcion, condiciones_retirar, nombre, email, celular= db.get_donation_by_id(donation_id)
+    _, comuna_nom=db.get_comuna_nom(comuna_id)
+    _, ruta_archivo, nombre_archivo, _= db.get_photo_by_donation_id(donation_id)
+    img_filename= f"{ruta_archivo}/{nombre_archivo}"
+    data={
+            "comuna_nom": comuna_nom,
+            "calle_numero": calle_numero,
+            "tipo": tipo,
+            "cantidad": cantidad,
+            "fecha": fecha_disponibilidad,
+            "descripcion": descripcion,
+            "condiciones_retirar": condiciones_retirar,
+            "nombre": nombre,
+            "email": email,
+            "celular": celular,
+            "img_filename": img_filename,
+        }
+    return render_template("specific_info/informacion-donacion.html",data=data)
 
 #http://localhost/informacion-pedido
 @app.route("/informacion-pedido")
-def request_info():
-    return render_template("specific_info/informacion-pedido.html")
+def request_info(request_id=-1):
+    if request_id==-1:
+        return redirect(url_for('requests'))
+    _, comuna_id, tipo, descripcion, cantidad, nombre, email, celular=db.get_request_by_id(request_id)
+    _, comuna_nom=db.get_comuna_nom(comuna_id)
+    data={
+        "comuna_nom": comuna_nom,
+            "tipo": tipo,
+            "descripcion": descripcion,
+            "cantidad": cantidad,
+            "nombre": nombre,
+            "email": email,
+            "celular": celular,
+    }
+    return render_template("specific_info/informacion-pedido.html",data=data)
 
 if __name__ == "__main__":
     app.run(debug=True)
