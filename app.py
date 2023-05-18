@@ -142,9 +142,10 @@ def donations():
 def requests():
     data=[]
     for request in db.get_requests(page=1):
-        _, comuna_id, tipo, descripcion, cantidad, nombre, email, celular = request
+        request_id, comuna_id, tipo, descripcion, cantidad, nombre, email, celular = request
         _, comuna_nom=db.get_comuna_nom(comuna_id)
         data.append({
+            "id": request_id,
             "comuna_nom": comuna_nom,
             "tipo": tipo,
             "descripcion": descripcion,
@@ -183,9 +184,9 @@ def donation_info():
 
 #http://localhost/informacion-pedido
 @app.route("/informacion-pedido")
-def request_info(request_id=-1):
-
-    if request_id==-1:
+def request_info():
+    request_id = request.args.get('id')
+    if not request_id:
         return redirect(url_for('requests'))
     _, comuna_id, tipo, descripcion, cantidad, nombre, email, celular=db.get_request_by_id(request_id)
     _, comuna_nom=db.get_comuna_nom(comuna_id)
