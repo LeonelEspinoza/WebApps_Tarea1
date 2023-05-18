@@ -1,7 +1,7 @@
 # WebApps_Tarea 1 y 2
 **Desarrollo de Aplicaciones Web CC5002-1**  
 + Tarea 1 [Entregada el: 11-04-2023]  
-+ Tarea 2 [Entregada el: --]  
++ Tarea 2 [Entregada el: 17-05-2023]  
 
 **Enunciado 2**  
 Implementar usando python con Flask y MySQL  
