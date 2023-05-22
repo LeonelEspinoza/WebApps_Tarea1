@@ -1,3 +1,5 @@
+let photos=1;
+
 const validarForm = () => {
     //funciones auxiliares
     const validarNombre = (nombre) => nombre && nombre.length > 2 && nombre.length < 81;
@@ -113,5 +115,46 @@ const validarForm = () => {
     }
 };
 
+const add_photo_fun=()=>{
+    let photos_gather=document.getElementById("photos-gather");
+    let add_photo_but=document.getElementById("add-photo");
+    
+    if(photos>=3){
+        return ;
+    }
+    
+    photos+=1;
+    
+    let input_id= "foto-donacion-"+toString(photos);
+
+    let photo_div =document.createElement("div");
+    photo_div.class="input-group mb-3";
+    
+    let photo_label=document.createElement("label");
+    photo_label.class="input-group-text"
+    photo_label.for=input_id
+    photo_label.innerText="Foto donación";
+
+    let photo_input=document.createElement("input");
+    photo_input.class="form-control";
+    photo_input.id=input_id;
+    photo_input.name=input_id;
+    photo_input.type="file";
+    photo_input.multiple=true;
+    photo_input.accept="image/*,.pdf";
+    
+    photo_div.append(photo_label);
+    photo_div.append(photo_input);
+
+    photos_gather.append(photo_div);
+
+    if(photos>2){
+        add_photo_but.hidden=true;
+    }
+}
+// pip freeze > requirements.txt
 let submitBtn = document.getElementById("envio");
 submitBtn.addEventListener("click", validarForm);
+
+let add_photo = document.getElwmwnrById("add-photo");
+add_photo.addEventListener("click", add_photo_fun)

@@ -76,12 +76,26 @@
             <label class="input-group-text" for="condiciones-retiro">Condiciones para retirar</label>
             <input id="condiciones-retiro" name="condiciones-retiro" size="80" type="text">
         </div>
-        
-        <div class="input-group mb-3">
-            <label class="input-group-text" for="foto-donacion">Foto donación</label>
-            <input class="form-control" id="foto-donacion" name="foto-donacion" type="file" multiple accept="image/*,.pdf" required>
-        </div>
+        <div id="photos-gather">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="foto-donacion">Foto donación</label>
+                <input class="form-control" id="foto-donacion" name="foto-donacion" type="file" multiple accept="image/*,.pdf" required>
+            </div>
 
+        </div>
+        <button class="btn btn-primary btn-sm" id="add-photo" type="button">
+            Agregar otra foto
+        </button>
+        <!--
+        <div class="input-group mb-3" id="hidden_photo2" hidden>
+            <label class="input-group-text" for="foto-donacion2">Foto donación</label>
+            <input class="form-control" id="foto-donacion2" name="foto-donacion2" type="file" multiple accept="image/*,.pdf" required>
+        </div>
+        <div class="input-group mb-3" id="hidden_photo3" hidden>
+            <label class="input-group-text" for="foto-donacion3">Foto donación</label>
+            <input class="form-control" id="foto-donacion3" name="foto-donacion3" type="file" multiple accept="image/*,.pdf" required>
+        </div>
+        -->
         <div class="input-group mb-3">
             <label class="input-group-text" for="nombre">Nombre donante</label>
             <input id="nombre" name="nombre" type="text" size="80" required>
