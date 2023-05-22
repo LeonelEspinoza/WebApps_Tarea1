@@ -53,7 +53,7 @@ Implementar usando python con Flask y MySQL
 + La primera fila de donaciones lleva a informacion-donacion.html  
 + La última fila de pedidos lleva a informacion-pedido.html  
 + Con '`python app.py`' en la terminal corre la aplicación en debug
-+ Librerías instaladas en el env. utilizado: flask, filetype, mysql
++ Librerías utilizadas están en el archivo requirements.txt 
 
 [comment]: # (
     PALETA DE COLORES: 
